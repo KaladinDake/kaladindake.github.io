@@ -8,19 +8,61 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.my_first_block = function() {
+    ext.sample_sync_command = function() {
         // Code that gets executed when the block is run
         console.log("Hi Kaladin");
+    };
+
+    ext.sample_async_command = function(callback) {
+        // Functions for block with type 'w' will get a callback function as the
+        // final argument. This should be called to indicate that the block can
+        // stop waiting.
+        console.log("Hi Kaladin");
+        callback();
+    };
+
+    ext.sample_sync_reporter = function() {
+        //Blocks can also return values, and they are called reporter blocks.
+        console.log("Hi Kaladin");
+        return 5;
+    };
+
+    ext.sample_async_reporter = function(callback) {
+        //One common use-case for reporter blocks is getting data from
+        //online web-services, where the blocks need to wait for the
+        //web-api call to complete.
+        console.log("Hi Kaladin");
+        callback(50);
+    };
+
+    ext.sample_hat_block = function() {
+        //Hat blocks go on top of block stacks -
+        //examples of Scratch hat blocks include "when green flag clicked"
+        //or "when this sprite clicked".
+        //synchronous, returns Boolean, true = run stack
+        console.log("Hi Kaladin");
+        return true;
+    };
+
+    ext.sample_boolean_reporter = function() {
+        //Boolean reporter (like 'r' but returns only true or false)
+        console.log("Hi Kaladin");
+        return false;
     };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             // Block type, block name, function name
-            [' ', 'my first block', 'my_first_block'],
+            [' ', 'sample sync command', 'sample_sync_command'],
+            ['w', 'sample async command', 'sample_async_command'],
+            ['r', 'sample sync reporter', 'sample_sync_reporter'],
+            ['R', 'sample async reporter', 'sample_async_reporter'],
+            ['h', 'sample hat block', 'sample_hat_block'],
+            ['b', 'sample boolean reporter', 'sample_boolean_reporter'],
         ]
     };
 
     // Register the extension
-    ScratchExtensions.register('My first extension', descriptor, ext);
+    ScratchExtensions.register("Kaladin's extension", descriptor, ext);
 })({});
