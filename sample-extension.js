@@ -59,7 +59,7 @@
             ['r', 'sample sync reporter', 'sample_sync_reporter'],
             ['R', 'sample async reporter', 'sample_async_reporter'],
             ['h', 'sample hat block', 'sample_hat_block'],
-            ['b', 'sample boolean reporter', 'sample_boolean_reporter'],
+            ['b', 'sample boolean reporter', 'sample_boolean_reporter']
         ]
     };
 
