@@ -13,21 +13,28 @@
     ext.get_weather = function(zipcode, callback) {
       console.log("Getting current weather");
       // Make an AJAX call to the Open Weather Maps API
-      $.ajax({
-          url: 'http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+'&appid=27f22360fce3c09eb4b3df095c988f3d&units=imperial',
-          dataType: 'jsonp',
-          success: function( weather_data ) {
-            console.log(weather_data);
-              // Got the data - parse it and return the temperature
-              weather = weather_data['weather'][0]['main'];
+
+      try {
+        $.ajax({
+            url: 'http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+'&appid=27f22360fce3c09eb4b3df095c988f3d&units=imperial',
+            dataType: 'jsonp',
+            success: function( weather_data ) {
+              console.log(weather_data);
+                // Got the data - parse it and return the temperature
+                weather = weather_data['weather'][0]['main'];
+                callback(weather);
+            },
+            error: function(weather_data) {
+              console.log(weather_data);
+              weather = "Error";
               callback(weather);
-          },
-          error: function(weather_data) {
-            console.log(weather_data);
-            weather = "Error";
-            callback(weather);
-          }
-    });
+            }
+          });
+        } catch(err) {
+          console.log(err);
+          weather = "Error";
+          callback(weather);
+        }
   };
 
     // Block and block menu descriptions
