@@ -50,6 +50,11 @@
         return false;
     };
 
+    ext.sample_arg_command = function(arg) {
+        //arguments are always the first things passed to the function
+        console.log("Hi Kaladin - argument is " + arg);
+    };
+
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
@@ -59,7 +64,8 @@
             ['r', 'sample sync reporter', 'sample_sync_reporter'],
             ['R', 'sample async reporter', 'sample_async_reporter'],
             ['h', 'sample hat block', 'sample_hat_block'],
-            ['b', 'sample boolean reporter', 'sample_boolean_reporter']
+            ['b', 'sample boolean reporter', 'sample_boolean_reporter'],
+            [' ', 'sample command that takes argument', 'sample_arg_command', '2']
         ]
     };
 
