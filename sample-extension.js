@@ -10,6 +10,7 @@
 
     ext.sample_sync_command = function() {
         // Code that gets executed when the block is run
+        when backspace kea prest
         console.log("Hi Kaladin");
     };
 
@@ -44,6 +45,16 @@
         return true;
     };
 
+    ext.enter_pressed = function() {
+      $(document).keypress(function(event){
+        if(event.which === 13) {
+          return true;
+        }
+        else {
+          return false;
+      });
+    }
+
     ext.sample_boolean_reporter = function() {
         //Boolean reporter (like 'r' but returns only true or false)
         console.log("Hi Kaladin");
@@ -65,10 +76,11 @@
             ['R', 'sample async reporter', 'sample_async_reporter'],
             ['h', 'sample hat block', 'sample_hat_block'],
             ['b', 'sample boolean reporter', 'sample_boolean_reporter'],
-            [' ', 'sample command that takes argument with value %n', 'sample_arg_command', '2']
+            [' ', 'sample command that takes argument with value %n', 'sample_arg_command', '2'],
+            ['h', 'when enter key pressed', 'enter_pressed']
         ]
     };
 
     // Register the extension
-    ScratchExtensions.register("Kaladin's extension", descriptor, ext);
+    ScratchExtensions.register("Kaladin's extensions", descriptor, ext);
 })({});
