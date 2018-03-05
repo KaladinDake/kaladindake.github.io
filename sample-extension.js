@@ -65,7 +65,7 @@
             ['R', 'sample async reporter', 'sample_async_reporter'],
             ['h', 'sample hat block', 'sample_hat_block'],
             ['b', 'sample boolean reporter', 'sample_boolean_reporter'],
-            [' ', 'sample command that takes argument', 'sample_arg_command', '2']
+            [' ', 'sample command that takes argument with value %n', 'sample_arg_command', '2']
         ]
     };
 
