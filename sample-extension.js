@@ -88,7 +88,11 @@
     $(document).keypress(function(event){
       console.log("Key pressed: " + event.which);
       if(event.which === 13) {
+        console.log("Enter was pressed");
         enterWasPressed = true;
+      }
+      else {
+        console.log("Something other than enter was pressed");
       }
     });
 
