@@ -67,6 +67,19 @@
         console.log("Hi Kaladin - argument is " + arg);
     };
 
+    ext.get_temp = function(location, callback) {
+      // Make an AJAX call to the Open Weather Maps API
+      $.ajax({
+          url: 'http://samples.openweathermap.org/data/2.5/weather?zip=03063,us&appid=27f22360fce3c09eb4b3df095c988f3d',
+          dataType: 'jsonp',
+          success: function( weather_data ) {
+              // Got the data - parse it and return the temperature
+              temperature = weather_data['weather'][0]['main'];
+              callback(temperature);
+          }
+    });
+  };
+
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
@@ -85,14 +98,15 @@
     // Register the extension
     ScratchExtensions.register("Kaladin's extensions", descriptor, ext);
 
-    $(document).keypress(function(event){
-      console.log("Key pressed: " + event.which);
+    $(document).keydown(function(event){
+      console.log("Key down: " + event.which);
       if(event.which === 13) {
-        console.log("Enter was pressed");
+        console.log("Enter was pressed down");
         enterWasPressed = true;
       }
       else {
         console.log("Something other than enter was pressed");
+        enterWasPressed = false;
       }
     });
 
