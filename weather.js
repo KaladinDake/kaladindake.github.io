@@ -19,8 +19,13 @@
           success: function( weather_data ) {
             console.log(weather_data);
               // Got the data - parse it and return the temperature
-              temperature = weather_data['weather'][0]['main'];
-              callback(temperature);
+              weather = weather_data['weather'][0]['main'];
+              callback(weather);
+          },
+          failure: function(weather_data) {
+            console.log(weather_data);
+            weather = "Error";
+            callback(weather);
           }
     });
   };
