@@ -10,7 +10,6 @@
 
     ext.sample_sync_command = function() {
         // Code that gets executed when the block is run
-        when backspace kea prest
         console.log("Hi Kaladin");
     };
 
