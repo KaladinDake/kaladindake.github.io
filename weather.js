@@ -17,7 +17,7 @@
           url: 'http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+'&appid=27f22360fce3c09eb4b3df095c988f3d',
           dataType: 'jsonp',
           success: function( weather_data ) {
-            console.log("Got current weather " + weather_data);
+            console.log(weather_data);
               // Got the data - parse it and return the temperature
               temperature = weather_data['weather'][0]['main'];
               callback(temperature);
