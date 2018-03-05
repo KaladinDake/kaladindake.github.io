@@ -1,4 +1,6 @@
 (function(ext) {
+    var enterWasPressed = false;
+
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -45,15 +47,13 @@
     };
 
     ext.enter_pressed = function() {
-      $(document).keypress(function(event){
-        console.log("Key pressed: " + event.which);
-        if(event.which === 13) {
-          return true;
-        }
-        else {
-          return false;
-        }
-      });
+      if(enterWasPressed) {
+        enterWasPressed = false;
+        return true;
+      }
+      else {
+        return false;
+      }
     }
 
     ext.sample_boolean_reporter = function() {
@@ -84,4 +84,12 @@
 
     // Register the extension
     ScratchExtensions.register("Kaladin's extensions", descriptor, ext);
+
+    $(document).keypress(function(event){
+      console.log("Key pressed: " + event.which);
+      if(event.which === 13) {
+        enterWasPressed = true;
+      }
+    });
+
 })({});
