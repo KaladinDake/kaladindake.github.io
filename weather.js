@@ -14,7 +14,7 @@
       console.log("Getting current weather");
       // Make an AJAX call to the Open Weather Maps API
       $.ajax({
-          url: 'http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+'&appid=27f22360fce3c09eb4b3df095c988f3d',
+          url: 'http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+'&appid=27f22360fce3c09eb4b3df095c988f3d&units=imperial',
           dataType: 'jsonp',
           success: function( weather_data ) {
             console.log(weather_data);
