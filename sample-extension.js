@@ -46,6 +46,7 @@
 
     ext.enter_pressed = function() {
       $(document).keypress(function(event){
+        console.log("Key pressed: " + event.which);
         if(event.which === 13) {
           return true;
         }
