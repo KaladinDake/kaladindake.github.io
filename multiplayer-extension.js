@@ -16,7 +16,7 @@
 
       try {
         $.ajax({
-            url: 'http://google.com/i.m-playing',
+            url: 'https://cac477csf1.execute-api.us-east-1.amazonaws.com/stage/scratchMultiplayer?username='+username,
             dataType: 'jsonp',
             success: function( player_data ) {
               console.log(weather_data);

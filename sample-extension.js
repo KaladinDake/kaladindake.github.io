@@ -91,7 +91,8 @@
             ['h', 'sample hat block', 'sample_hat_block'],
             ['b', 'sample boolean reporter', 'sample_boolean_reporter'],
             [' ', 'sample command that takes argument with value %n', 'sample_arg_command', '2'],
-            ['h', 'when enter key pressed', 'enter_pressed']
+            ['h', 'when enter key pressed', 'enter_pressed'],
+            ['R', 'current temperature in city %s', 'get_temp', 'Boston, MA']
         ]
     };
 
