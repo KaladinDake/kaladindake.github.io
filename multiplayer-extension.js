@@ -18,6 +18,7 @@
         $.ajax({
             url: 'https://cac477csf1.execute-api.us-east-1.amazonaws.com/stage/scratchMultiplayer?username='+username,
             dataType: 'jsonp',
+            jsonp: "jsoncallback",
             success: function( player_data ) {
               console.log(weather_data);
                 // Got the data - parse it and return the temperature
