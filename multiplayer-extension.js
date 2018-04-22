@@ -20,7 +20,7 @@
             dataType: 'jsonp',
             jsonp: "jsoncallback",
             success: function( player_data ) {
-              console.log(weather_data);
+              console.log(player_data);
                 // Got the data - parse it and return the temperature
                 count = player_data['count'];
                 callback(count);
